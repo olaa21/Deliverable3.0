@@ -1,0 +1,383 @@
+/* Mobile-First Design */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color, #f4f4f4);
+    color: var(--text-color, #333);
+    padding: 1rem;
+}
+
+/* Skip to Main Content */
+a[href="#main"] {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+a[href="#main"]:focus {
+    top: 0;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    background: #c44601;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: #0056b3;
+}
+
+/* Tabs style */
+nav ul.tabs {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul.tabs li {
+    flex: 1; /* Make tabs stretch equally */
+    margin: 0;
+}
+
+nav ul.tabs li a {
+    text-align: center;
+    padding: 10px;
+    display: block;
+    background: #c44601;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px 5px 0 0;
+    transition: background 0.3s ease-in-out;
+}
+
+nav ul.tabs li a:hover, nav ul.tabs li a.active {
+    background: #c44601;
+}
+
+/* Tab content */
+.tab-content {
+    display: none; /* Hide all content initially */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 0 5px 5px 5px;
+    background-color: #f9f9f9;
+    margin-top: -5px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Header Styling */
+header h1, header h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    text-decoration: underline;
+}
+
+/* Summary Section */
+.summary {
+    padding: 1rem;
+    background: #b51963;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #b51963;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+table tr:nth-child(even) {
+    background-color: #054fb9;
+}
+
+table tr td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Athlete Profile Carousel */
+.athlete-carousel {
+    position: relative;
+    width: 100%;
+    margin: 0 auto; /* Center the carousel */
+    overflow: hidden; /* Hide overflow so only one profile is shown */
+}
+
+.athlete-slider {
+    display: flex;
+    flex-direction: row; /* Ensure it lays out horizontally */
+    transition: transform 0.5s ease-in-out;
+    /* overflow-x: hidden; Allows horizontal scrolling */
+    /* scroll-snap-type: x mandatory; Adds snapping effect */
+    width: 100%;
+    gap: 20px; /* Adds spacing between profiles */
+}
+
+.athlete {
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #054fb9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center; /* Centers each profile when scrolling */
+    flex: 0 0 100%;
+    gap: 20px;
+    width: 100px;
+}
+
+.athlete dl {
+    text-align:center;
+    margin: auto;
+}
+.athlete figcaption{
+    text-align: center;
+    margin: auto;
+}
+.athlete figure {
+    margin:auto;
+}
+  
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #b51963;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Athlete Hover Effects */
+.athlete img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.athlete img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Gallery Styling */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  #gallery {
+    padding: 1rem;
+    background-color: #b51963; /* Background for the gallery section */
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  #gallery h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Two items per row */
+    gap: 1.5rem; /* Increase the space between items */
+    padding: 1.5rem;
+    justify-items: center; 
+    align-items: center; 
+  }
+  
+  .gallery-item {
+    /* position: relative;  */
+    overflow: hidden; 
+    background-color: #f8f8f8;
+    border-radius: 8px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Match the parent border-radius */
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  
+  /* Add overlay content */ 
+  .gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gallery-item:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+  }
+  
+  .gallery-item .overlay p {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+/* Progress Bar */
+.progress-bar {
+    position: relative;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar div {
+    height: 100%;
+    background: #007BFF;
+    width: 0;
+    transition: width 2s ease-in-out;
+}
+
+.progress-bar div.complete {
+    width: 100%;
+}
+
+footer a {
+    color: #f57600; 
+}
+
+/* Accessibility Features */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #222;
+        --text-color: #f4f4f4;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Dark Mode Toggle */
+body.dark-mode {
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.fab:hover {
+    background-color: #0056b3;
+}
